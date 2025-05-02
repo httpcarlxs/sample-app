@@ -24,9 +24,9 @@ if ! dpkg -s requests >/dev/null 2>&1; then
     pip install requests
 fi
 
-python3 server.py &
+python3 server/server.py &
 
 while true; do
-    python3 client.py
+    python3 client/client.py
     sleep 1
 done
