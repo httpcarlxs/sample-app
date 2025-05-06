@@ -14,8 +14,7 @@ spec:
     spec:
       containers:
         - name: flask-server
-          image: flask-server:latest
-          imagePullPolicy: Never
+          image: ssip-ufcg.privatedns.org/httpcarlxs/sample-app/flask-server:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 5000
-
