@@ -1,0 +1,21 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: NetworkChaos
+metadata:
+  name: partition-client-server
+spec:
+  action: partition
+  mode: all
+  duration: 60s
+  selector:
+    namespaces:
+      - default
+    labelSelectors:
+      'app': 'flask-server'
+  direction: from
+  target:
+    mode: all
+    selector:
+      namespaces:
+        - default
+      labelSelectors:
+        'app': 'flask-client'
