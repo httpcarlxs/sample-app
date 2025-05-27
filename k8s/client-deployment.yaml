@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: flask-client
+  namespace: sample-app
 spec:
   replicas: 1
   selector:
@@ -14,6 +15,13 @@ spec:
     spec:
       containers:
         - name: flask-client
-          image: ssip-ufcg.privatedns.org/httpcarlxs/sample-app/flask-client:latest
+          image: ssip-ufcg.privatedns.org/httpcarlxs/sample-app/flask-client:mtls
           imagePullPolicy: Always
-
+          volumeMounts:
+        - name: tls-certs
+          mountPath: /app/tls
+          readOnly: true
+      volumes:
+      - name: tls-certs
+        secret:
+          secretName: flask-client-tls

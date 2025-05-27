@@ -1,0 +1,1511 @@
+
+name: 4mz3uc2Okw-session-k8s-scone
+version: "0.3.10"
+
+access_policy:
+  read:
+   - ANY
+  update:
+   - ANY
+  create_sessions:
+   - ANY
+
+secrets:
+
+
+---
+name: 4mz3uc2Okw-session-k8s-scone/config-fragments_versions
+version: 0.3.10
+access_policy:
+  read:
+  - ANY
+  update:
+  - ANY
+secrets:
+- name: mrsigner_mrenclave_versions
+  kind: config-fragment
+  export_public: true
+  value:
+  - signer:
+      mrsigner: 11c4e150b76c2b145f7fadb6c30455e1046b9e6fbb75b49c6e13341ad8acc5bd
+      isvprodid: 0
+      isvsvn_min: 0
+    mrenclave:
+    - 8ffdcd14030325b9de8e43b28ecec0b200bd3b2d9dd3496272a2a24cb3911f0e
+    - a9bf47cef6b89a6102c778ab18a0812f32f19b488fdfe9a02778396db7d771d7
+
+---
+
+name: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server_versions
+version: "0.3.11"
+access_policy:
+  read:
+   - ANY
+  update:
+   - ANY
+  create_sessions:
+   - ANY
+security:
+  attestation:
+    tolerate: [debug-mode, hyperthreading, outdated-tcb, software-hardening-needed, local-attestation-trust-cas-tcb, insecure-configuration]
+    ignore_advisories: "*"
+
+services:
+
+    - name: flask-server
+      attestation:
+
+      - $$SCONE::mrsigner_mrenclave_versions$$
+      command: /usr/local/bin/python3 server.py
+      pwd: /app
+
+      fspf_path: /fspf/file/fspf.pb
+      fspf_key: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+      fspf_tag: 742108f1beb6914b7791491ae0402b3f
+                
+      environment:
+          SCONE_LOG: FATAL
+          SCONE_CONFIG_ID: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server/flask-server
+          SCONE_CAS_ADDR: cas.scone-system
+          \@\@SCONE_LAS_ADDR: SCONE_LAS_ADDR
+          SCONE_FSPF_KEY: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+          SCONE_FSPF_TAG: 742108f1beb6914b7791491ae0402b3f
+          SCONE_FSPF: /fspf/file/fspf.pb
+
+
+
+      
+
+
+
+secrets:
+    - name: mrsigner_mrenclave_versions
+      import:
+        session: ../config-fragments_versions
+        secret: mrsigner_mrenclave_versions
+
+
+
+
+
+
+---
+name: 4mz3uc2Okw-session-k8s-scone/config-fragments_usr_local_bin_python3.11
+version: 0.3.10
+access_policy:
+  read:
+  - ANY
+  update:
+  - ANY
+secrets:
+- name: mrsigner_mrenclave_usr_local_bin_python3.11
+  kind: config-fragment
+  export_public: true
+  value:
+    signer:
+      mrsigner: 11c4e150b76c2b145f7fadb6c30455e1046b9e6fbb75b49c6e13341ad8acc5bd
+      isvprodid: 0
+      isvsvn_min: 0
+    mrenclave:
+    - 8ffdcd14030325b9de8e43b28ecec0b200bd3b2d9dd3496272a2a24cb3911f0e
+    - a9bf47cef6b89a6102c778ab18a0812f32f19b488fdfe9a02778396db7d771d7
+
+---
+
+name: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server_usr_local_bin_python3.11
+version: "0.3.11"
+access_policy:
+  read:
+   - ANY
+  update:
+   - ANY
+  create_sessions:
+   - ANY
+security:
+  attestation:
+    tolerate: [debug-mode, hyperthreading, outdated-tcb, software-hardening-needed, local-attestation-trust-cas-tcb, insecure-configuration]
+    ignore_advisories: "*"
+
+services:
+
+    - name: flask-server
+      attestation:
+
+      - $$SCONE::mrsigner_mrenclave_usr_local_bin_python3.11$$
+      command: /usr/local/bin/python3 server.py
+      pwd: /app
+
+      fspf_path: /fspf/file/fspf.pb
+      fspf_key: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+      fspf_tag: 742108f1beb6914b7791491ae0402b3f
+                
+      environment:
+          SCONE_LOG: FATAL
+          SCONE_CONFIG_ID: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server/flask-server
+          SCONE_CAS_ADDR: cas.scone-system
+          \@\@SCONE_LAS_ADDR: SCONE_LAS_ADDR
+          SCONE_FSPF_KEY: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+          SCONE_FSPF_TAG: 742108f1beb6914b7791491ae0402b3f
+          SCONE_FSPF: /fspf/file/fspf.pb
+
+
+
+      
+
+
+
+secrets:
+    - name: mrsigner_mrenclave_usr_local_bin_python3.11
+      import:
+        session: ../config-fragments_usr_local_bin_python3.11
+        secret: mrsigner_mrenclave_usr_local_bin_python3.11
+
+
+
+
+
+
+---
+name: 4mz3uc2Okw-session-k8s-scone/config-fragments_versions_usr_local_bin_python3.11
+version: 0.3.10
+access_policy:
+  read:
+  - ANY
+  update:
+  - ANY
+secrets:
+- name: mrsigner_mrenclave_versions_usr_local_bin_python3.11
+  kind: config-fragment
+  export_public: true
+  value:
+  - signer:
+      mrsigner: 11c4e150b76c2b145f7fadb6c30455e1046b9e6fbb75b49c6e13341ad8acc5bd
+      isvprodid: 0
+      isvsvn_min: 0
+    mrenclave:
+    - 8ffdcd14030325b9de8e43b28ecec0b200bd3b2d9dd3496272a2a24cb3911f0e
+    - a9bf47cef6b89a6102c778ab18a0812f32f19b488fdfe9a02778396db7d771d7
+
+---
+
+name: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server_versions_usr_local_bin_python3.11
+version: "0.3.11"
+access_policy:
+  read:
+   - ANY
+  update:
+   - ANY
+  create_sessions:
+   - ANY
+security:
+  attestation:
+    tolerate: [debug-mode, hyperthreading, outdated-tcb, software-hardening-needed, local-attestation-trust-cas-tcb, insecure-configuration]
+    ignore_advisories: "*"
+
+services:
+
+    - name: flask-server
+      attestation:
+
+      - $$SCONE::mrsigner_mrenclave_versions_usr_local_bin_python3.11$$
+      command: /usr/local/bin/python3 server.py
+      pwd: /app
+
+      fspf_path: /fspf/file/fspf.pb
+      fspf_key: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+      fspf_tag: 742108f1beb6914b7791491ae0402b3f
+                
+      environment:
+          SCONE_LOG: FATAL
+          SCONE_CONFIG_ID: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server/flask-server
+          SCONE_CAS_ADDR: cas.scone-system
+          \@\@SCONE_LAS_ADDR: SCONE_LAS_ADDR
+          SCONE_FSPF_KEY: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+          SCONE_FSPF_TAG: 742108f1beb6914b7791491ae0402b3f
+          SCONE_FSPF: /fspf/file/fspf.pb
+
+
+
+      
+
+
+
+secrets:
+    - name: mrsigner_mrenclave_versions_usr_local_bin_python3.11
+      import:
+        session: ../config-fragments_versions_usr_local_bin_python3.11
+        secret: mrsigner_mrenclave_versions_usr_local_bin_python3.11
+
+
+
+
+
+
+---
+name: 4mz3uc2Okw-session-k8s-scone/config-fragments_usr_sbin_update-ca-certificates
+version: 0.3.10
+access_policy:
+  read:
+  - ANY
+  update:
+  - ANY
+secrets:
+- name: mrsigner_mrenclave_usr_sbin_update-ca-certificates
+  kind: config-fragment
+  export_public: true
+  value:
+    signer:
+      mrsigner: 11c4e150b76c2b145f7fadb6c30455e1046b9e6fbb75b49c6e13341ad8acc5bd
+      isvprodid: 0
+      isvsvn_min: 0
+    mrenclave:
+    - a7cd5796ee6eced9e6b1349141f197960e926ce13547ec51e3b709c447b44572
+    - efb2f0f6015b17e6897ed5edf95bdead4b2e12ca19ee848cb3ac9cc55cbb6f27
+
+---
+
+name: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server_usr_sbin_update-ca-certificates
+version: "0.3.11"
+access_policy:
+  read:
+   - ANY
+  update:
+   - ANY
+  create_sessions:
+   - ANY
+security:
+  attestation:
+    tolerate: [debug-mode, hyperthreading, outdated-tcb, software-hardening-needed, local-attestation-trust-cas-tcb, insecure-configuration]
+    ignore_advisories: "*"
+
+services:
+
+    - name: flask-server
+      attestation:
+
+      - $$SCONE::mrsigner_mrenclave_usr_sbin_update-ca-certificates$$
+      command: /usr/local/bin/python3 server.py
+      pwd: /app
+
+      fspf_path: /fspf/file/fspf.pb
+      fspf_key: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+      fspf_tag: 742108f1beb6914b7791491ae0402b3f
+                
+      environment:
+          SCONE_LOG: FATAL
+          SCONE_CONFIG_ID: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server/flask-server
+          SCONE_CAS_ADDR: cas.scone-system
+          \@\@SCONE_LAS_ADDR: SCONE_LAS_ADDR
+          SCONE_FSPF_KEY: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+          SCONE_FSPF_TAG: 742108f1beb6914b7791491ae0402b3f
+          SCONE_FSPF: /fspf/file/fspf.pb
+
+
+
+      
+
+
+
+secrets:
+    - name: mrsigner_mrenclave_usr_sbin_update-ca-certificates
+      import:
+        session: ../config-fragments_usr_sbin_update-ca-certificates
+        secret: mrsigner_mrenclave_usr_sbin_update-ca-certificates
+
+
+
+
+
+
+---
+name: 4mz3uc2Okw-session-k8s-scone/config-fragments_versions_usr_sbin_update-ca-certificates
+version: 0.3.10
+access_policy:
+  read:
+  - ANY
+  update:
+  - ANY
+secrets:
+- name: mrsigner_mrenclave_versions_usr_sbin_update-ca-certificates
+  kind: config-fragment
+  export_public: true
+  value:
+  - signer:
+      mrsigner: 11c4e150b76c2b145f7fadb6c30455e1046b9e6fbb75b49c6e13341ad8acc5bd
+      isvprodid: 0
+      isvsvn_min: 0
+    mrenclave:
+    - a7cd5796ee6eced9e6b1349141f197960e926ce13547ec51e3b709c447b44572
+    - efb2f0f6015b17e6897ed5edf95bdead4b2e12ca19ee848cb3ac9cc55cbb6f27
+
+---
+
+name: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server_versions_usr_sbin_update-ca-certificates
+version: "0.3.11"
+access_policy:
+  read:
+   - ANY
+  update:
+   - ANY
+  create_sessions:
+   - ANY
+security:
+  attestation:
+    tolerate: [debug-mode, hyperthreading, outdated-tcb, software-hardening-needed, local-attestation-trust-cas-tcb, insecure-configuration]
+    ignore_advisories: "*"
+
+services:
+
+    - name: flask-server
+      attestation:
+
+      - $$SCONE::mrsigner_mrenclave_versions_usr_sbin_update-ca-certificates$$
+      command: /usr/local/bin/python3 server.py
+      pwd: /app
+
+      fspf_path: /fspf/file/fspf.pb
+      fspf_key: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+      fspf_tag: 742108f1beb6914b7791491ae0402b3f
+                
+      environment:
+          SCONE_LOG: FATAL
+          SCONE_CONFIG_ID: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server/flask-server
+          SCONE_CAS_ADDR: cas.scone-system
+          \@\@SCONE_LAS_ADDR: SCONE_LAS_ADDR
+          SCONE_FSPF_KEY: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+          SCONE_FSPF_TAG: 742108f1beb6914b7791491ae0402b3f
+          SCONE_FSPF: /fspf/file/fspf.pb
+
+
+
+      
+
+
+
+secrets:
+    - name: mrsigner_mrenclave_versions_usr_sbin_update-ca-certificates
+      import:
+        session: ../config-fragments_versions_usr_sbin_update-ca-certificates
+        secret: mrsigner_mrenclave_versions_usr_sbin_update-ca-certificates
+
+
+
+
+
+
+---
+name: 4mz3uc2Okw-session-k8s-scone/config-fragments_usr_bin_getent
+version: 0.3.10
+access_policy:
+  read:
+  - ANY
+  update:
+  - ANY
+secrets:
+- name: mrsigner_mrenclave_usr_bin_getent
+  kind: config-fragment
+  export_public: true
+  value:
+    signer:
+      mrsigner: 11c4e150b76c2b145f7fadb6c30455e1046b9e6fbb75b49c6e13341ad8acc5bd
+      isvprodid: 0
+      isvsvn_min: 0
+    mrenclave:
+    - 52bd8ef02ac4693feccf38f9e518eaa440614a977a08231041b5857d6860da9f
+    - bd9626f8d152e375549bc593ee59b4196932a86d07d99e1728e0b6798729acb3
+
+---
+
+name: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server_usr_bin_getent
+version: "0.3.11"
+access_policy:
+  read:
+   - ANY
+  update:
+   - ANY
+  create_sessions:
+   - ANY
+security:
+  attestation:
+    tolerate: [debug-mode, hyperthreading, outdated-tcb, software-hardening-needed, local-attestation-trust-cas-tcb, insecure-configuration]
+    ignore_advisories: "*"
+
+services:
+
+    - name: flask-server
+      attestation:
+
+      - $$SCONE::mrsigner_mrenclave_usr_bin_getent$$
+      command: /usr/local/bin/python3 server.py
+      pwd: /app
+
+      fspf_path: /fspf/file/fspf.pb
+      fspf_key: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+      fspf_tag: 742108f1beb6914b7791491ae0402b3f
+                
+      environment:
+          SCONE_LOG: FATAL
+          SCONE_CONFIG_ID: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server/flask-server
+          SCONE_CAS_ADDR: cas.scone-system
+          \@\@SCONE_LAS_ADDR: SCONE_LAS_ADDR
+          SCONE_FSPF_KEY: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+          SCONE_FSPF_TAG: 742108f1beb6914b7791491ae0402b3f
+          SCONE_FSPF: /fspf/file/fspf.pb
+
+
+
+      
+
+
+
+secrets:
+    - name: mrsigner_mrenclave_usr_bin_getent
+      import:
+        session: ../config-fragments_usr_bin_getent
+        secret: mrsigner_mrenclave_usr_bin_getent
+
+
+
+
+
+
+---
+name: 4mz3uc2Okw-session-k8s-scone/config-fragments_versions_usr_bin_getent
+version: 0.3.10
+access_policy:
+  read:
+  - ANY
+  update:
+  - ANY
+secrets:
+- name: mrsigner_mrenclave_versions_usr_bin_getent
+  kind: config-fragment
+  export_public: true
+  value:
+  - signer:
+      mrsigner: 11c4e150b76c2b145f7fadb6c30455e1046b9e6fbb75b49c6e13341ad8acc5bd
+      isvprodid: 0
+      isvsvn_min: 0
+    mrenclave:
+    - 52bd8ef02ac4693feccf38f9e518eaa440614a977a08231041b5857d6860da9f
+    - bd9626f8d152e375549bc593ee59b4196932a86d07d99e1728e0b6798729acb3
+
+---
+
+name: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server_versions_usr_bin_getent
+version: "0.3.11"
+access_policy:
+  read:
+   - ANY
+  update:
+   - ANY
+  create_sessions:
+   - ANY
+security:
+  attestation:
+    tolerate: [debug-mode, hyperthreading, outdated-tcb, software-hardening-needed, local-attestation-trust-cas-tcb, insecure-configuration]
+    ignore_advisories: "*"
+
+services:
+
+    - name: flask-server
+      attestation:
+
+      - $$SCONE::mrsigner_mrenclave_versions_usr_bin_getent$$
+      command: /usr/local/bin/python3 server.py
+      pwd: /app
+
+      fspf_path: /fspf/file/fspf.pb
+      fspf_key: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+      fspf_tag: 742108f1beb6914b7791491ae0402b3f
+                
+      environment:
+          SCONE_LOG: FATAL
+          SCONE_CONFIG_ID: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server/flask-server
+          SCONE_CAS_ADDR: cas.scone-system
+          \@\@SCONE_LAS_ADDR: SCONE_LAS_ADDR
+          SCONE_FSPF_KEY: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+          SCONE_FSPF_TAG: 742108f1beb6914b7791491ae0402b3f
+          SCONE_FSPF: /fspf/file/fspf.pb
+
+
+
+      
+
+
+
+secrets:
+    - name: mrsigner_mrenclave_versions_usr_bin_getent
+      import:
+        session: ../config-fragments_versions_usr_bin_getent
+        secret: mrsigner_mrenclave_versions_usr_bin_getent
+
+
+
+
+
+
+---
+name: 4mz3uc2Okw-session-k8s-scone/config-fragments_usr_bin_iconv
+version: 0.3.10
+access_policy:
+  read:
+  - ANY
+  update:
+  - ANY
+secrets:
+- name: mrsigner_mrenclave_usr_bin_iconv
+  kind: config-fragment
+  export_public: true
+  value:
+    signer:
+      mrsigner: 11c4e150b76c2b145f7fadb6c30455e1046b9e6fbb75b49c6e13341ad8acc5bd
+      isvprodid: 0
+      isvsvn_min: 0
+    mrenclave:
+    - ce3b90b083ab0f4e14f0a451e84ac65e509502e3f81ef933f9671699f4946a21
+    - 6e4471991ea516268dbee963542ecd9bcab89643e7ebc7a61455d9eaa9135119
+
+---
+
+name: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server_usr_bin_iconv
+version: "0.3.11"
+access_policy:
+  read:
+   - ANY
+  update:
+   - ANY
+  create_sessions:
+   - ANY
+security:
+  attestation:
+    tolerate: [debug-mode, hyperthreading, outdated-tcb, software-hardening-needed, local-attestation-trust-cas-tcb, insecure-configuration]
+    ignore_advisories: "*"
+
+services:
+
+    - name: flask-server
+      attestation:
+
+      - $$SCONE::mrsigner_mrenclave_usr_bin_iconv$$
+      command: /usr/local/bin/python3 server.py
+      pwd: /app
+
+      fspf_path: /fspf/file/fspf.pb
+      fspf_key: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+      fspf_tag: 742108f1beb6914b7791491ae0402b3f
+                
+      environment:
+          SCONE_LOG: FATAL
+          SCONE_CONFIG_ID: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server/flask-server
+          SCONE_CAS_ADDR: cas.scone-system
+          \@\@SCONE_LAS_ADDR: SCONE_LAS_ADDR
+          SCONE_FSPF_KEY: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+          SCONE_FSPF_TAG: 742108f1beb6914b7791491ae0402b3f
+          SCONE_FSPF: /fspf/file/fspf.pb
+
+
+
+      
+
+
+
+secrets:
+    - name: mrsigner_mrenclave_usr_bin_iconv
+      import:
+        session: ../config-fragments_usr_bin_iconv
+        secret: mrsigner_mrenclave_usr_bin_iconv
+
+
+
+
+
+
+---
+name: 4mz3uc2Okw-session-k8s-scone/config-fragments_versions_usr_bin_iconv
+version: 0.3.10
+access_policy:
+  read:
+  - ANY
+  update:
+  - ANY
+secrets:
+- name: mrsigner_mrenclave_versions_usr_bin_iconv
+  kind: config-fragment
+  export_public: true
+  value:
+  - signer:
+      mrsigner: 11c4e150b76c2b145f7fadb6c30455e1046b9e6fbb75b49c6e13341ad8acc5bd
+      isvprodid: 0
+      isvsvn_min: 0
+    mrenclave:
+    - ce3b90b083ab0f4e14f0a451e84ac65e509502e3f81ef933f9671699f4946a21
+    - 6e4471991ea516268dbee963542ecd9bcab89643e7ebc7a61455d9eaa9135119
+
+---
+
+name: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server_versions_usr_bin_iconv
+version: "0.3.11"
+access_policy:
+  read:
+   - ANY
+  update:
+   - ANY
+  create_sessions:
+   - ANY
+security:
+  attestation:
+    tolerate: [debug-mode, hyperthreading, outdated-tcb, software-hardening-needed, local-attestation-trust-cas-tcb, insecure-configuration]
+    ignore_advisories: "*"
+
+services:
+
+    - name: flask-server
+      attestation:
+
+      - $$SCONE::mrsigner_mrenclave_versions_usr_bin_iconv$$
+      command: /usr/local/bin/python3 server.py
+      pwd: /app
+
+      fspf_path: /fspf/file/fspf.pb
+      fspf_key: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+      fspf_tag: 742108f1beb6914b7791491ae0402b3f
+                
+      environment:
+          SCONE_LOG: FATAL
+          SCONE_CONFIG_ID: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server/flask-server
+          SCONE_CAS_ADDR: cas.scone-system
+          \@\@SCONE_LAS_ADDR: SCONE_LAS_ADDR
+          SCONE_FSPF_KEY: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+          SCONE_FSPF_TAG: 742108f1beb6914b7791491ae0402b3f
+          SCONE_FSPF: /fspf/file/fspf.pb
+
+
+
+      
+
+
+
+secrets:
+    - name: mrsigner_mrenclave_versions_usr_bin_iconv
+      import:
+        session: ../config-fragments_versions_usr_bin_iconv
+        secret: mrsigner_mrenclave_versions_usr_bin_iconv
+
+
+
+
+
+
+---
+name: 4mz3uc2Okw-session-k8s-scone/config-fragments_usr_bin_getconf
+version: 0.3.10
+access_policy:
+  read:
+  - ANY
+  update:
+  - ANY
+secrets:
+- name: mrsigner_mrenclave_usr_bin_getconf
+  kind: config-fragment
+  export_public: true
+  value:
+    signer:
+      mrsigner: 11c4e150b76c2b145f7fadb6c30455e1046b9e6fbb75b49c6e13341ad8acc5bd
+      isvprodid: 0
+      isvsvn_min: 0
+    mrenclave:
+    - c73dd1a246ccbf97094561a082b925e982059141472d99dd360e3a59ec8afa5e
+    - eb925a4bbf04da9ac2b8f195bde33b7d854c9db76261963c30ea2c43f2790be4
+
+---
+
+name: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server_usr_bin_getconf
+version: "0.3.11"
+access_policy:
+  read:
+   - ANY
+  update:
+   - ANY
+  create_sessions:
+   - ANY
+security:
+  attestation:
+    tolerate: [debug-mode, hyperthreading, outdated-tcb, software-hardening-needed, local-attestation-trust-cas-tcb, insecure-configuration]
+    ignore_advisories: "*"
+
+services:
+
+    - name: flask-server
+      attestation:
+
+      - $$SCONE::mrsigner_mrenclave_usr_bin_getconf$$
+      command: /usr/local/bin/python3 server.py
+      pwd: /app
+
+      fspf_path: /fspf/file/fspf.pb
+      fspf_key: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+      fspf_tag: 742108f1beb6914b7791491ae0402b3f
+                
+      environment:
+          SCONE_LOG: FATAL
+          SCONE_CONFIG_ID: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server/flask-server
+          SCONE_CAS_ADDR: cas.scone-system
+          \@\@SCONE_LAS_ADDR: SCONE_LAS_ADDR
+          SCONE_FSPF_KEY: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+          SCONE_FSPF_TAG: 742108f1beb6914b7791491ae0402b3f
+          SCONE_FSPF: /fspf/file/fspf.pb
+
+
+
+      
+
+
+
+secrets:
+    - name: mrsigner_mrenclave_usr_bin_getconf
+      import:
+        session: ../config-fragments_usr_bin_getconf
+        secret: mrsigner_mrenclave_usr_bin_getconf
+
+
+
+
+
+
+---
+name: 4mz3uc2Okw-session-k8s-scone/config-fragments_versions_usr_bin_getconf
+version: 0.3.10
+access_policy:
+  read:
+  - ANY
+  update:
+  - ANY
+secrets:
+- name: mrsigner_mrenclave_versions_usr_bin_getconf
+  kind: config-fragment
+  export_public: true
+  value:
+  - signer:
+      mrsigner: 11c4e150b76c2b145f7fadb6c30455e1046b9e6fbb75b49c6e13341ad8acc5bd
+      isvprodid: 0
+      isvsvn_min: 0
+    mrenclave:
+    - c73dd1a246ccbf97094561a082b925e982059141472d99dd360e3a59ec8afa5e
+    - eb925a4bbf04da9ac2b8f195bde33b7d854c9db76261963c30ea2c43f2790be4
+
+---
+
+name: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server_versions_usr_bin_getconf
+version: "0.3.11"
+access_policy:
+  read:
+   - ANY
+  update:
+   - ANY
+  create_sessions:
+   - ANY
+security:
+  attestation:
+    tolerate: [debug-mode, hyperthreading, outdated-tcb, software-hardening-needed, local-attestation-trust-cas-tcb, insecure-configuration]
+    ignore_advisories: "*"
+
+services:
+
+    - name: flask-server
+      attestation:
+
+      - $$SCONE::mrsigner_mrenclave_versions_usr_bin_getconf$$
+      command: /usr/local/bin/python3 server.py
+      pwd: /app
+
+      fspf_path: /fspf/file/fspf.pb
+      fspf_key: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+      fspf_tag: 742108f1beb6914b7791491ae0402b3f
+                
+      environment:
+          SCONE_LOG: FATAL
+          SCONE_CONFIG_ID: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server/flask-server
+          SCONE_CAS_ADDR: cas.scone-system
+          \@\@SCONE_LAS_ADDR: SCONE_LAS_ADDR
+          SCONE_FSPF_KEY: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+          SCONE_FSPF_TAG: 742108f1beb6914b7791491ae0402b3f
+          SCONE_FSPF: /fspf/file/fspf.pb
+
+
+
+      
+
+
+
+secrets:
+    - name: mrsigner_mrenclave_versions_usr_bin_getconf
+      import:
+        session: ../config-fragments_versions_usr_bin_getconf
+        secret: mrsigner_mrenclave_versions_usr_bin_getconf
+
+
+
+
+
+
+---
+name: 4mz3uc2Okw-session-k8s-scone/config-fragments_usr_bin_scanelf
+version: 0.3.10
+access_policy:
+  read:
+  - ANY
+  update:
+  - ANY
+secrets:
+- name: mrsigner_mrenclave_usr_bin_scanelf
+  kind: config-fragment
+  export_public: true
+  value:
+    signer:
+      mrsigner: 11c4e150b76c2b145f7fadb6c30455e1046b9e6fbb75b49c6e13341ad8acc5bd
+      isvprodid: 0
+      isvsvn_min: 0
+    mrenclave:
+    - 9ea7652f9d01937f3279474386287a5f102a7762f25c6e15b62e11449c8ec070
+    - 1032380b67fd2324b591b3dcea86cf315b95382b8162e262f6610ffafd5402e8
+
+---
+
+name: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server_usr_bin_scanelf
+version: "0.3.11"
+access_policy:
+  read:
+   - ANY
+  update:
+   - ANY
+  create_sessions:
+   - ANY
+security:
+  attestation:
+    tolerate: [debug-mode, hyperthreading, outdated-tcb, software-hardening-needed, local-attestation-trust-cas-tcb, insecure-configuration]
+    ignore_advisories: "*"
+
+services:
+
+    - name: flask-server
+      attestation:
+
+      - $$SCONE::mrsigner_mrenclave_usr_bin_scanelf$$
+      command: /usr/local/bin/python3 server.py
+      pwd: /app
+
+      fspf_path: /fspf/file/fspf.pb
+      fspf_key: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+      fspf_tag: 742108f1beb6914b7791491ae0402b3f
+                
+      environment:
+          SCONE_LOG: FATAL
+          SCONE_CONFIG_ID: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server/flask-server
+          SCONE_CAS_ADDR: cas.scone-system
+          \@\@SCONE_LAS_ADDR: SCONE_LAS_ADDR
+          SCONE_FSPF_KEY: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+          SCONE_FSPF_TAG: 742108f1beb6914b7791491ae0402b3f
+          SCONE_FSPF: /fspf/file/fspf.pb
+
+
+
+      
+
+
+
+secrets:
+    - name: mrsigner_mrenclave_usr_bin_scanelf
+      import:
+        session: ../config-fragments_usr_bin_scanelf
+        secret: mrsigner_mrenclave_usr_bin_scanelf
+
+
+
+
+
+
+---
+name: 4mz3uc2Okw-session-k8s-scone/config-fragments_versions_usr_bin_scanelf
+version: 0.3.10
+access_policy:
+  read:
+  - ANY
+  update:
+  - ANY
+secrets:
+- name: mrsigner_mrenclave_versions_usr_bin_scanelf
+  kind: config-fragment
+  export_public: true
+  value:
+  - signer:
+      mrsigner: 11c4e150b76c2b145f7fadb6c30455e1046b9e6fbb75b49c6e13341ad8acc5bd
+      isvprodid: 0
+      isvsvn_min: 0
+    mrenclave:
+    - 9ea7652f9d01937f3279474386287a5f102a7762f25c6e15b62e11449c8ec070
+    - 1032380b67fd2324b591b3dcea86cf315b95382b8162e262f6610ffafd5402e8
+
+---
+
+name: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server_versions_usr_bin_scanelf
+version: "0.3.11"
+access_policy:
+  read:
+   - ANY
+  update:
+   - ANY
+  create_sessions:
+   - ANY
+security:
+  attestation:
+    tolerate: [debug-mode, hyperthreading, outdated-tcb, software-hardening-needed, local-attestation-trust-cas-tcb, insecure-configuration]
+    ignore_advisories: "*"
+
+services:
+
+    - name: flask-server
+      attestation:
+
+      - $$SCONE::mrsigner_mrenclave_versions_usr_bin_scanelf$$
+      command: /usr/local/bin/python3 server.py
+      pwd: /app
+
+      fspf_path: /fspf/file/fspf.pb
+      fspf_key: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+      fspf_tag: 742108f1beb6914b7791491ae0402b3f
+                
+      environment:
+          SCONE_LOG: FATAL
+          SCONE_CONFIG_ID: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server/flask-server
+          SCONE_CAS_ADDR: cas.scone-system
+          \@\@SCONE_LAS_ADDR: SCONE_LAS_ADDR
+          SCONE_FSPF_KEY: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+          SCONE_FSPF_TAG: 742108f1beb6914b7791491ae0402b3f
+          SCONE_FSPF: /fspf/file/fspf.pb
+
+
+
+      
+
+
+
+secrets:
+    - name: mrsigner_mrenclave_versions_usr_bin_scanelf
+      import:
+        session: ../config-fragments_versions_usr_bin_scanelf
+        secret: mrsigner_mrenclave_versions_usr_bin_scanelf
+
+
+
+
+
+
+---
+name: 4mz3uc2Okw-session-k8s-scone/config-fragments_usr_bin_ssl_client
+version: 0.3.10
+access_policy:
+  read:
+  - ANY
+  update:
+  - ANY
+secrets:
+- name: mrsigner_mrenclave_usr_bin_ssl_client
+  kind: config-fragment
+  export_public: true
+  value:
+    signer:
+      mrsigner: 11c4e150b76c2b145f7fadb6c30455e1046b9e6fbb75b49c6e13341ad8acc5bd
+      isvprodid: 0
+      isvsvn_min: 0
+    mrenclave:
+    - f6af1758c606052f7b6edcae33501e7ba6429a193d4fac36e1a275fa3613dc3b
+    - 4db1ce630c7e2b909a8107fbe445e65095c0b94d9bfbabbea9531e12e5d7c7b1
+
+---
+
+name: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server_usr_bin_ssl_client
+version: "0.3.11"
+access_policy:
+  read:
+   - ANY
+  update:
+   - ANY
+  create_sessions:
+   - ANY
+security:
+  attestation:
+    tolerate: [debug-mode, hyperthreading, outdated-tcb, software-hardening-needed, local-attestation-trust-cas-tcb, insecure-configuration]
+    ignore_advisories: "*"
+
+services:
+
+    - name: flask-server
+      attestation:
+
+      - $$SCONE::mrsigner_mrenclave_usr_bin_ssl_client$$
+      command: /usr/local/bin/python3 server.py
+      pwd: /app
+
+      fspf_path: /fspf/file/fspf.pb
+      fspf_key: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+      fspf_tag: 742108f1beb6914b7791491ae0402b3f
+                
+      environment:
+          SCONE_LOG: FATAL
+          SCONE_CONFIG_ID: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server/flask-server
+          SCONE_CAS_ADDR: cas.scone-system
+          \@\@SCONE_LAS_ADDR: SCONE_LAS_ADDR
+          SCONE_FSPF_KEY: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+          SCONE_FSPF_TAG: 742108f1beb6914b7791491ae0402b3f
+          SCONE_FSPF: /fspf/file/fspf.pb
+
+
+
+      
+
+
+
+secrets:
+    - name: mrsigner_mrenclave_usr_bin_ssl_client
+      import:
+        session: ../config-fragments_usr_bin_ssl_client
+        secret: mrsigner_mrenclave_usr_bin_ssl_client
+
+
+
+
+
+
+---
+name: 4mz3uc2Okw-session-k8s-scone/config-fragments_versions_usr_bin_ssl_client
+version: 0.3.10
+access_policy:
+  read:
+  - ANY
+  update:
+  - ANY
+secrets:
+- name: mrsigner_mrenclave_versions_usr_bin_ssl_client
+  kind: config-fragment
+  export_public: true
+  value:
+  - signer:
+      mrsigner: 11c4e150b76c2b145f7fadb6c30455e1046b9e6fbb75b49c6e13341ad8acc5bd
+      isvprodid: 0
+      isvsvn_min: 0
+    mrenclave:
+    - f6af1758c606052f7b6edcae33501e7ba6429a193d4fac36e1a275fa3613dc3b
+    - 4db1ce630c7e2b909a8107fbe445e65095c0b94d9bfbabbea9531e12e5d7c7b1
+
+---
+
+name: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server_versions_usr_bin_ssl_client
+version: "0.3.11"
+access_policy:
+  read:
+   - ANY
+  update:
+   - ANY
+  create_sessions:
+   - ANY
+security:
+  attestation:
+    tolerate: [debug-mode, hyperthreading, outdated-tcb, software-hardening-needed, local-attestation-trust-cas-tcb, insecure-configuration]
+    ignore_advisories: "*"
+
+services:
+
+    - name: flask-server
+      attestation:
+
+      - $$SCONE::mrsigner_mrenclave_versions_usr_bin_ssl_client$$
+      command: /usr/local/bin/python3 server.py
+      pwd: /app
+
+      fspf_path: /fspf/file/fspf.pb
+      fspf_key: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+      fspf_tag: 742108f1beb6914b7791491ae0402b3f
+                
+      environment:
+          SCONE_LOG: FATAL
+          SCONE_CONFIG_ID: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server/flask-server
+          SCONE_CAS_ADDR: cas.scone-system
+          \@\@SCONE_LAS_ADDR: SCONE_LAS_ADDR
+          SCONE_FSPF_KEY: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+          SCONE_FSPF_TAG: 742108f1beb6914b7791491ae0402b3f
+          SCONE_FSPF: /fspf/file/fspf.pb
+
+
+
+      
+
+
+
+secrets:
+    - name: mrsigner_mrenclave_versions_usr_bin_ssl_client
+      import:
+        session: ../config-fragments_versions_usr_bin_ssl_client
+        secret: mrsigner_mrenclave_versions_usr_bin_ssl_client
+
+
+
+
+
+
+---
+name: 4mz3uc2Okw-session-k8s-scone/config-fragments_usr_bin_c_rehash
+version: 0.3.10
+access_policy:
+  read:
+  - ANY
+  update:
+  - ANY
+secrets:
+- name: mrsigner_mrenclave_usr_bin_c_rehash
+  kind: config-fragment
+  export_public: true
+  value:
+    signer:
+      mrsigner: 11c4e150b76c2b145f7fadb6c30455e1046b9e6fbb75b49c6e13341ad8acc5bd
+      isvprodid: 0
+      isvsvn_min: 0
+    mrenclave:
+    - fe4d8e1896a2a3da621b9bc257ad68bff531cc0126c0d370d9d62f2cab494b2d
+    - 025c909f529c58c7376e2419d6573e846407a09f3d4090c2c2123333f8cd8ed9
+
+---
+
+name: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server_usr_bin_c_rehash
+version: "0.3.11"
+access_policy:
+  read:
+   - ANY
+  update:
+   - ANY
+  create_sessions:
+   - ANY
+security:
+  attestation:
+    tolerate: [debug-mode, hyperthreading, outdated-tcb, software-hardening-needed, local-attestation-trust-cas-tcb, insecure-configuration]
+    ignore_advisories: "*"
+
+services:
+
+    - name: flask-server
+      attestation:
+
+      - $$SCONE::mrsigner_mrenclave_usr_bin_c_rehash$$
+      command: /usr/local/bin/python3 server.py
+      pwd: /app
+
+      fspf_path: /fspf/file/fspf.pb
+      fspf_key: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+      fspf_tag: 742108f1beb6914b7791491ae0402b3f
+                
+      environment:
+          SCONE_LOG: FATAL
+          SCONE_CONFIG_ID: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server/flask-server
+          SCONE_CAS_ADDR: cas.scone-system
+          \@\@SCONE_LAS_ADDR: SCONE_LAS_ADDR
+          SCONE_FSPF_KEY: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+          SCONE_FSPF_TAG: 742108f1beb6914b7791491ae0402b3f
+          SCONE_FSPF: /fspf/file/fspf.pb
+
+
+
+      
+
+
+
+secrets:
+    - name: mrsigner_mrenclave_usr_bin_c_rehash
+      import:
+        session: ../config-fragments_usr_bin_c_rehash
+        secret: mrsigner_mrenclave_usr_bin_c_rehash
+
+
+
+
+
+
+---
+name: 4mz3uc2Okw-session-k8s-scone/config-fragments_versions_usr_bin_c_rehash
+version: 0.3.10
+access_policy:
+  read:
+  - ANY
+  update:
+  - ANY
+secrets:
+- name: mrsigner_mrenclave_versions_usr_bin_c_rehash
+  kind: config-fragment
+  export_public: true
+  value:
+  - signer:
+      mrsigner: 11c4e150b76c2b145f7fadb6c30455e1046b9e6fbb75b49c6e13341ad8acc5bd
+      isvprodid: 0
+      isvsvn_min: 0
+    mrenclave:
+    - fe4d8e1896a2a3da621b9bc257ad68bff531cc0126c0d370d9d62f2cab494b2d
+    - 025c909f529c58c7376e2419d6573e846407a09f3d4090c2c2123333f8cd8ed9
+
+---
+
+name: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server_versions_usr_bin_c_rehash
+version: "0.3.11"
+access_policy:
+  read:
+   - ANY
+  update:
+   - ANY
+  create_sessions:
+   - ANY
+security:
+  attestation:
+    tolerate: [debug-mode, hyperthreading, outdated-tcb, software-hardening-needed, local-attestation-trust-cas-tcb, insecure-configuration]
+    ignore_advisories: "*"
+
+services:
+
+    - name: flask-server
+      attestation:
+
+      - $$SCONE::mrsigner_mrenclave_versions_usr_bin_c_rehash$$
+      command: /usr/local/bin/python3 server.py
+      pwd: /app
+
+      fspf_path: /fspf/file/fspf.pb
+      fspf_key: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+      fspf_tag: 742108f1beb6914b7791491ae0402b3f
+                
+      environment:
+          SCONE_LOG: FATAL
+          SCONE_CONFIG_ID: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server/flask-server
+          SCONE_CAS_ADDR: cas.scone-system
+          \@\@SCONE_LAS_ADDR: SCONE_LAS_ADDR
+          SCONE_FSPF_KEY: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+          SCONE_FSPF_TAG: 742108f1beb6914b7791491ae0402b3f
+          SCONE_FSPF: /fspf/file/fspf.pb
+
+
+
+      
+
+
+
+secrets:
+    - name: mrsigner_mrenclave_versions_usr_bin_c_rehash
+      import:
+        session: ../config-fragments_versions_usr_bin_c_rehash
+        secret: mrsigner_mrenclave_versions_usr_bin_c_rehash
+
+
+
+
+
+
+---
+name: 4mz3uc2Okw-session-k8s-scone/config-fragments_sbin_apk
+version: 0.3.10
+access_policy:
+  read:
+  - ANY
+  update:
+  - ANY
+secrets:
+- name: mrsigner_mrenclave_sbin_apk
+  kind: config-fragment
+  export_public: true
+  value:
+    signer:
+      mrsigner: 11c4e150b76c2b145f7fadb6c30455e1046b9e6fbb75b49c6e13341ad8acc5bd
+      isvprodid: 0
+      isvsvn_min: 0
+    mrenclave:
+    - 6c2f6a8556af71edc9f27587edcf7740aceadc8519bf383ae9f7e4b093c6a919
+    - 2b8bcf4314396cbb181fdc5688954ef6051dac98bb5f34b298325bcb2e8e1a46
+
+---
+
+name: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server_sbin_apk
+version: "0.3.11"
+access_policy:
+  read:
+   - ANY
+  update:
+   - ANY
+  create_sessions:
+   - ANY
+security:
+  attestation:
+    tolerate: [debug-mode, hyperthreading, outdated-tcb, software-hardening-needed, local-attestation-trust-cas-tcb, insecure-configuration]
+    ignore_advisories: "*"
+
+services:
+
+    - name: flask-server
+      attestation:
+
+      - $$SCONE::mrsigner_mrenclave_sbin_apk$$
+      command: /usr/local/bin/python3 server.py
+      pwd: /app
+
+      fspf_path: /fspf/file/fspf.pb
+      fspf_key: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+      fspf_tag: 742108f1beb6914b7791491ae0402b3f
+                
+      environment:
+          SCONE_LOG: FATAL
+          SCONE_CONFIG_ID: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server/flask-server
+          SCONE_CAS_ADDR: cas.scone-system
+          \@\@SCONE_LAS_ADDR: SCONE_LAS_ADDR
+          SCONE_FSPF_KEY: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+          SCONE_FSPF_TAG: 742108f1beb6914b7791491ae0402b3f
+          SCONE_FSPF: /fspf/file/fspf.pb
+
+
+
+      
+
+
+
+secrets:
+    - name: mrsigner_mrenclave_sbin_apk
+      import:
+        session: ../config-fragments_sbin_apk
+        secret: mrsigner_mrenclave_sbin_apk
+
+
+
+
+
+
+---
+name: 4mz3uc2Okw-session-k8s-scone/config-fragments_versions_sbin_apk
+version: 0.3.10
+access_policy:
+  read:
+  - ANY
+  update:
+  - ANY
+secrets:
+- name: mrsigner_mrenclave_versions_sbin_apk
+  kind: config-fragment
+  export_public: true
+  value:
+  - signer:
+      mrsigner: 11c4e150b76c2b145f7fadb6c30455e1046b9e6fbb75b49c6e13341ad8acc5bd
+      isvprodid: 0
+      isvsvn_min: 0
+    mrenclave:
+    - 6c2f6a8556af71edc9f27587edcf7740aceadc8519bf383ae9f7e4b093c6a919
+    - 2b8bcf4314396cbb181fdc5688954ef6051dac98bb5f34b298325bcb2e8e1a46
+
+---
+
+name: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server_versions_sbin_apk
+version: "0.3.11"
+access_policy:
+  read:
+   - ANY
+  update:
+   - ANY
+  create_sessions:
+   - ANY
+security:
+  attestation:
+    tolerate: [debug-mode, hyperthreading, outdated-tcb, software-hardening-needed, local-attestation-trust-cas-tcb, insecure-configuration]
+    ignore_advisories: "*"
+
+services:
+
+    - name: flask-server
+      attestation:
+
+      - $$SCONE::mrsigner_mrenclave_versions_sbin_apk$$
+      command: /usr/local/bin/python3 server.py
+      pwd: /app
+
+      fspf_path: /fspf/file/fspf.pb
+      fspf_key: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+      fspf_tag: 742108f1beb6914b7791491ae0402b3f
+                
+      environment:
+          SCONE_LOG: FATAL
+          SCONE_CONFIG_ID: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server/flask-server
+          SCONE_CAS_ADDR: cas.scone-system
+          \@\@SCONE_LAS_ADDR: SCONE_LAS_ADDR
+          SCONE_FSPF_KEY: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+          SCONE_FSPF_TAG: 742108f1beb6914b7791491ae0402b3f
+          SCONE_FSPF: /fspf/file/fspf.pb
+
+
+
+      
+
+
+
+secrets:
+    - name: mrsigner_mrenclave_versions_sbin_apk
+      import:
+        session: ../config-fragments_versions_sbin_apk
+        secret: mrsigner_mrenclave_versions_sbin_apk
+
+
+
+
+
+
+---
+
+name: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server
+version: "0.3.11"
+access_policy:
+  read:
+   - ANY
+  update:
+   - ANY
+  create_sessions:
+   - ANY
+security:
+  attestation:
+    tolerate: [debug-mode, hyperthreading, outdated-tcb, software-hardening-needed, local-attestation-trust-cas-tcb, insecure-configuration]
+    ignore_advisories: "*"
+
+services:
+
+    - name: flask-server
+      attestation:
+
+      - mrenclave:
+        - a9bf47cef6b89a6102c778ab18a0812f32f19b488fdfe9a02778396db7d771d7
+
+
+      command: /usr/local/bin/python3 server.py
+      pwd: /app
+
+      fspf_path: /fspf/file/fspf.pb
+      fspf_key: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+      fspf_tag: 742108f1beb6914b7791491ae0402b3f
+                
+      environment:
+          SCONE_LOG: FATAL
+          SCONE_CONFIG_ID: 4mz3uc2Okw-session-k8s-scone/flask-server-cas-scone-system-flask-server/flask-server
+          SCONE_CAS_ADDR: cas.scone-system
+          \@\@SCONE_LAS_ADDR: SCONE_LAS_ADDR
+          SCONE_FSPF_KEY: b79d3d9d022cafad831328106ace3ad73f8e69d3b76410f0a5d95543da415e0a
+          SCONE_FSPF_TAG: 742108f1beb6914b7791491ae0402b3f
+          SCONE_FSPF: /fspf/file/fspf.pb
+
+
+
+      
+
+
+
+secrets:
+
+
+
+
