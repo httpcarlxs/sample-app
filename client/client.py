@@ -4,7 +4,10 @@ from datetime import datetime
 def get_hello():
     while True:
         try:
-            response = requests.get("http://flask-server:5000/")
+            response = requests.get("https://flask-server:5000/", 
+                                    cert=("tls/client.crt", "tls/client.key"),
+                                    verify="tls/ca.crt"
+                                )
             now = datetime.now().strftime("%H:%M:%S")
             msg = response.json()['message']
             #print(json.dumps(response.json(), indent=4))
