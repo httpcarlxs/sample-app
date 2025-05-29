@@ -14,15 +14,15 @@ spec:
         app: flask-server
     spec:
       containers:
-        - name: flask-server
-          image: ssip-ufcg.privatedns.org/httpcarlxs/sample-app/flask-server:mtls
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 5000
-          volumeMounts:
-          - name: tls-certs
-            mountPath: /app/tls
-            readOnly: true
+      - name: flask-server
+        image: ssip-ufcg.privatedns.org/httpcarlxs/sample-app/flask-server:mtls
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 5000
+        volumeMounts:
+        - name: tls-certs
+          mountPath: /app/tls
+          readOnly: true
       volumes:
       - name: tls-certs
         secret:

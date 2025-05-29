@@ -13,7 +13,7 @@ def hello_world():
 
 if __name__ == "__main__":
     context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
-    context.verify_mode = ssl.CERT_REQUIRED
     context.load_cert_chain(certfile="tls/server.crt", keyfile="tls/server.key")
     context.load_verify_locations(cafile="tls/ca.crt")
+    context.verify_mode = ssl.CERT_REQUIRED
     app.run(host="0.0.0.0", port=5000, ssl_context=context)

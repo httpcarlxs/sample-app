@@ -14,10 +14,10 @@ spec:
         app: flask-client
     spec:
       containers:
-        - name: flask-client
-          image: ssip-ufcg.privatedns.org/httpcarlxs/sample-app/flask-client:mtls
-          imagePullPolicy: Always
-          volumeMounts:
+      - name: flask-client
+        image: ssip-ufcg.privatedns.org/httpcarlxs/sample-app/flask-client:mtls
+        imagePullPolicy: Always
+        volumeMounts:
         - name: tls-certs
           mountPath: /app/tls
           readOnly: true
@@ -25,3 +25,4 @@ spec:
       - name: tls-certs
         secret:
           secretName: flask-client-tls
+
