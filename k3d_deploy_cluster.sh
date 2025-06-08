@@ -1,7 +1,6 @@
 mkdir -p ~/k3d-data/prometheus
 mkdir -p ~/k3d-data/grafana
 
-# Create a dedicated registry
 k3d registry create sample-registry.localhost --port 5001
 
 k3d cluster create mycluster \
@@ -10,33 +9,21 @@ k3d cluster create mycluster \
   --servers 1 \
   --volume ~/k3d-data/prometheus:/var/lib/rancher/k3s/storage/prometheus@server:0 \
   --volume ~/k3d-data/grafana:/var/lib/rancher/k3s/storage/grafana@server:0 \
-  --k3s-arg "--disable=traefik@server:*" # TODO: mayber remove this part?
+  --k3s-arg "--disable=traefik@server:*" # TODO: maybe remove this part?
 
-# From your project root, build the server image
 docker build -f server/Dockerfile -t flask-server:mtls ./server
-
-# Tag it so it points at your k3d registry
 docker tag flask-server:mtls k3d-sample-registry.localhost:5001/flask-server:mtls
-
-# Push it into the registry
 docker push k3d-sample-registry.localhost:5001/flask-server:mtls
 
-# Build the client image
 docker build -f client/Dockerfile -t flask-client:mtls ./client
-
-# Tag for k3d registry
 docker tag flask-client:mtls k3d-sample-registry.localhost:5001/flask-client:mtls
-
-# Push it
 docker push k3d-sample-registry.localhost:5001/flask-client:mtls
 
-# Load images directly into k3d
 k3d image import flask-server:mtls --cluster mycluster
 k3d image import flask-client:mtls --cluster mycluster
 
 kubectl create namespace sample-app
 
-# From your project root, assuming your TLS folder is at ./tls
 kubectl -n sample-app create secret generic flask-server-tls \
   --from-file=server.crt=./tls/server.crt \
   --from-file=server.key=./tls/server.key \
