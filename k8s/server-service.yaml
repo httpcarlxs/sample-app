@@ -3,11 +3,13 @@ kind: Service
 metadata:
   name: flask-server
   namespace: sample-app
+  labels:
+    app: flask-server
 spec:
   selector:
     app: flask-server
   ports:
-    - protocol: TCP
+    - name: https
+      protocol: TCP
       port: 5000
       targetPort: 5000
-

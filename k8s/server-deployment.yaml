@@ -15,10 +15,16 @@ spec:
     spec:
       containers:
       - name: flask-server
-        image: ssip-ufcg.privatedns.org/httpcarlxs/sample-app/flask-server:mtls
-        imagePullPolicy: Always
+        image: k3d-sample-registry.localhost:5001/flask-server:mtls
+        imagePullPolicy: IfNotPresent
         ports:
           - containerPort: 5000
+        env:
+          - name: PROMETHEUS_HEX
+            valueFrom:
+              secretKeyRef:
+                name: bearer-token-secret
+                key: token
         volumeMounts:
         - name: tls-certs
           mountPath: /app/tls

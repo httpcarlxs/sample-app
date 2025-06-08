@@ -1,0 +1,33 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: flask-server-servicemonitor
+  namespace: sample-app
+  labels:
+    release: kube-prometheus-stack
+    app: flask-server
+spec:
+  namespaceSelector:
+    matchNames: ["sample-app"]
+  selector:
+    matchLabels:
+      app: flask-server
+  endpoints:
+    - port: https
+      path: /metrics
+      interval: 30s
+      scheme: https
+
+      tlsConfig:
+        insecureSkipVerify: true
+        cert:
+          secret:
+            name: flask-client-tls
+            key: client.crt
+        keySecret:
+          name: flask-client-tls
+          key: client.key
+
+      bearerTokenSecret:
+        name: bearer-token-secret
+        key: token

@@ -15,8 +15,8 @@ spec:
     spec:
       containers:
       - name: flask-client
-        image: ssip-ufcg.privatedns.org/httpcarlxs/sample-app/flask-client:mtls
-        imagePullPolicy: Always
+        image: k3d-sample-registry.localhost:5001/flask-client:mtls
+        imagePullPolicy: IfNotPresent
         volumeMounts:
         - name: tls-certs
           mountPath: /app/tls
