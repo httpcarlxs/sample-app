@@ -9,7 +9,7 @@ k3d cluster create mycluster \
   --servers 1 \
   --volume ~/k3d-data/prometheus:/var/lib/rancher/k3s/storage/prometheus@server:0 \
   --volume ~/k3d-data/grafana:/var/lib/rancher/k3s/storage/grafana@server:0 \
-  --k3s-arg "--disable=traefik@server:*" # TODO: maybe remove this part?
+  --k3s-arg "--disable=traefik@server:*"
 
 docker build -f server/Dockerfile -t flask-server:mtls ./server
 docker tag flask-server:mtls k3d-sample-registry.localhost:5001/flask-server:mtls
