@@ -27,7 +27,3 @@ spec:
         keySecret:
           name: flask-client-tls
           key: client.key
-
-      bearerTokenSecret:
-        name: bearer-token-secret
-        key: token

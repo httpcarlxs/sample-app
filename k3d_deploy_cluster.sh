@@ -1,15 +1,9 @@
-mkdir -p ~/k3d-data/prometheus
-mkdir -p ~/k3d-data/grafana
-
 k3d registry create sample-registry.localhost --port 5001
 
 k3d cluster create mycluster \
   --registry-use k3d-sample-registry.localhost:5001 \
   --agents 0 \
-  --servers 1 \
-  --volume ~/k3d-data/prometheus:/var/lib/rancher/k3s/storage/prometheus@server:0 \
-  --volume ~/k3d-data/grafana:/var/lib/rancher/k3s/storage/grafana@server:0 \
-  --k3s-arg "--disable=traefik@server:*"
+  --servers 1
 
 docker build -f server/Dockerfile -t flask-server:mtls ./server
 docker tag flask-server:mtls k3d-sample-registry.localhost:5001/flask-server:mtls
@@ -40,11 +34,6 @@ kubectl -n sample-app apply -f k8s/client-deployment.yaml
 
 kubectl create namespace monitoring
 
-helm install kube-prometheus-stack prometheus-community/kube-prometheus-stack \
-    --namespace monitoring \
-    --values ../yaml/persistence.yaml
+helm install kube-prometheus-stack prometheus-community/kube-prometheus-stack --namespace monitoring
 
-# export PROMETHEUS_HEX="6a39a8d315aded11a5e14f97336c037ff99a974463614edc149d87cf24b72bb4"
-
-kubectl apply -f k8s/bearer-token-secret.yaml
 kubectl apply -f k8s/flask-servicemonitor.yaml

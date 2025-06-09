@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request, abort
 from datetime import datetime
-import ssl, os, time
+import ssl, os
 from prometheus_client import Counter, generate_latest
 
 app = Flask(__name__)
@@ -18,8 +18,6 @@ server_requests = Counter(
     "Total amount of requests received by the server",
 )
 
-SHARED_KEY = os.getenv("PROMETHEUS_HEX")
-
 
 @app.after_request
 def track_metrics(response):
@@ -30,14 +28,6 @@ def track_metrics(response):
 
 @app.route("/metrics")
 def metrics():
-    auth_header = request.headers.get("Authorization")
-    if auth_header is None or not auth_header.startswith("Bearer "):
-        abort(401)
-    token = auth_header.split(" ")[1]
-
-    if token != SHARED_KEY:
-        abort(403)
-
     return generate_latest(), 200, {"Content-Type": "text/plain"}
 
 

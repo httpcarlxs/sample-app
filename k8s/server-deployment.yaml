@@ -19,12 +19,6 @@ spec:
         imagePullPolicy: IfNotPresent
         ports:
           - containerPort: 5000
-        env:
-          - name: PROMETHEUS_HEX
-            valueFrom:
-              secretKeyRef:
-                name: bearer-token-secret
-                key: token
         volumeMounts:
         - name: tls-certs
           mountPath: /app/tls
