@@ -34,6 +34,8 @@ kubectl -n sample-app apply -f k8s/client-deployment.yaml
 
 kubectl create namespace monitoring
 
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
 helm install kube-prometheus-stack prometheus-community/kube-prometheus-stack --namespace monitoring
 
 kubectl apply -f k8s/flask-servicemonitor.yaml
