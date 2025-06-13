@@ -8,7 +8,7 @@ spec:
   duration: 60s
   selector:
     namespaces:
-      - default
+      - sample-app
     labelSelectors:
       'app': 'flask-server'
   direction: to

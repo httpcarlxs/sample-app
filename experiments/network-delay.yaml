@@ -7,7 +7,7 @@ spec:
   mode: one # the mode to run chaos action; supported modes are one/all/fixed/fixed-percent/random-max-percent
   selector: # pods where to inject chaos actions
     namespaces:
-      - default
+      - sample-app
     labelSelectors:
       'app': 'flask-server' # the label of the pod for chaos injection
   delay:

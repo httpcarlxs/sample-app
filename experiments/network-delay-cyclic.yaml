@@ -12,7 +12,7 @@ spec:
     mode: one
     selector:
       namespaces:
-        - default
+        - sample-app
       labelSelectors:
         'app': 'flask-server'
     delay:
