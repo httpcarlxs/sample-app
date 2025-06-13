@@ -8,12 +8,13 @@ metadata:
     app: flask-server
 spec:
   namespaceSelector:
-    matchNames: ["sample-app"]
+    matchNames: 
+    - "sample-app"
   selector:
     matchLabels:
       app: flask-server
   endpoints:
-    - port: https
+    - port: flask-server-port
       path: /metrics
       interval: 30s
       scheme: https

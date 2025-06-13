@@ -15,8 +15,7 @@ spec:
     spec:
       containers:
       - name: flask-client
-        image: k3d-sample-registry.localhost:5001/flask-client:mtls
-        imagePullPolicy: IfNotPresent
+        image: sergioggrilo/flask-client:mtls
         volumeMounts:
         - name: tls-certs
           mountPath: /app/tls
@@ -25,4 +24,3 @@ spec:
       - name: tls-certs
         secret:
           secretName: flask-client-tls
-

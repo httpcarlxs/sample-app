@@ -9,7 +9,7 @@ spec:
   selector:
     app: flask-server
   ports:
-    - name: https
+    - name: flask-server-port
       protocol: TCP
       port: 5000
       targetPort: 5000

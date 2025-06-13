@@ -15,8 +15,7 @@ spec:
     spec:
       containers:
       - name: flask-server
-        image: k3d-sample-registry.localhost:5001/flask-server:mtls
-        imagePullPolicy: IfNotPresent
+        image: sergioggrilo/flask-server:mtls
         ports:
           - containerPort: 5000
         volumeMounts:
