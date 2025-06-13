@@ -1,6 +1,6 @@
 k3d registry create sample-registry.localhost --port 5001
 
-k3d cluster create mycluster \
+k3d cluster create sample-cluster \
   --registry-use k3d-sample-registry.localhost:5001 \
   --agents 0 \
   --servers 1
@@ -13,8 +13,8 @@ docker build -f client/Dockerfile -t flask-client:mtls ./client
 docker tag flask-client:mtls k3d-sample-registry.localhost:5001/flask-client:mtls
 docker push k3d-sample-registry.localhost:5001/flask-client:mtls
 
-k3d image import flask-server:mtls --cluster mycluster
-k3d image import flask-client:mtls --cluster mycluster
+k3d image import flask-server:mtls --cluster sample-cluster
+k3d image import flask-client:mtls --cluster sample-cluster
 
 kubectl create namespace sample-app
 
@@ -39,3 +39,6 @@ helm repo update
 helm install kube-prometheus-stack prometheus-community/kube-prometheus-stack --namespace monitoring
 
 kubectl apply -f k8s/flask-servicemonitor.yaml
+
+kubectl create configmap sample-dashboard   --from-file=dashboards/   -n monitoring
+kubectl label configmap sample-dashboard grafana_dashboard=1 -n monitoring
