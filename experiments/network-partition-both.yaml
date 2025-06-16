@@ -16,6 +16,6 @@ spec:
     mode: all
     selector:
       namespaces:
-        - default
+        - sample-app
       labelSelectors:
         'app': 'flask-client'

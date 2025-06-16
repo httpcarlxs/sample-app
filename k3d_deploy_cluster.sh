@@ -25,11 +25,10 @@ helm repo add prometheus-community https://prometheus-community.github.io/helm-c
 helm repo update
 helm install kube-prometheus-stack prometheus-community/kube-prometheus-stack --namespace monitoring
 
-# Chaos Mesh installation
+# Chaos Mesh installation (using k3s container runtime)
 helm repo add chaos-mesh https://charts.chaos-mesh.org
 kubectl create ns chaos-mesh
-# Default to /var/run/docker.sock
-helm install chaos-mesh chaos-mesh/chaos-mesh -n=chaos-mesh --version 2.7.2
+helm install chaos-mesh chaos-mesh/chaos-mesh -n=chaos-mesh --set chaosDaemon.runtime=containerd --set chaosDaemon.socketPath=/run/k3s/containerd/containerd.sock --version 2.7.2
 kubectl apply -f chaos-mesh/rbac.yaml
 
 # ServiceMonitor whose purpose is to monitor the server service
