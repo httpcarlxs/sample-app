@@ -14,6 +14,11 @@ kubectl -n sample-app create secret generic flask-client-tls \
   --from-file=client.key=./tls/client.key \
   --from-file=ca.crt=./tls/ca.crt
 
+kubectl -n sample-app create secret generic flask-ca \
+  --from-file=ca.crt=./tls/ca.crt \
+  --from-file=ca.key=./tls/ca.key \
+  --from-file=ca.srl=./tls/ca.srl
+
 kubectl -n sample-app apply -f k8s/server-service.yaml
 kubectl -n sample-app apply -f k8s/server-deployment.yaml
 kubectl -n sample-app apply -f k8s/client-deployment.yaml

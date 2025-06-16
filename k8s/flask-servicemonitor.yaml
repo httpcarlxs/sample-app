@@ -20,7 +20,11 @@ spec:
       scheme: https
 
       tlsConfig:
-        insecureSkipVerify: true
+        serverName: flask-server
+        ca:
+          secret:
+            name: flask-ca
+            key: ca.crt
         cert:
           secret:
             name: flask-client-tls
