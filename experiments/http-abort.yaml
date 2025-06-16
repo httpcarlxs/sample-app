@@ -7,6 +7,8 @@ spec:
   selector:
     labelSelectors:
       app: flask-client
+    namespaces:
+      - sample-app
   target: Request
   port: 5000
   path: '*'

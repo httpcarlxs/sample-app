@@ -8,5 +8,7 @@ spec:
   selector:
     labelSelectors:
       "app": "flask-server"
+    namespaces:
+    - sample-app
   #schedule:
   #  cron: "@every 2m"
