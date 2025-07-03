@@ -15,8 +15,7 @@ spec:
     spec:
       containers:
       - name: flask-server
-        image: ssip-ufcg.privatedns.org/httpcarlxs/sample-app/flask-server:mtls
-        imagePullPolicy: Always
+        image: sergioggrilo/flask-server:mtls
         ports:
           - containerPort: 5000
         volumeMounts:

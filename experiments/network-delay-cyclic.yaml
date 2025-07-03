@@ -2,6 +2,7 @@ apiVersion: chaos-mesh.org/v1alpha1
 kind: Schedule
 metadata:
   name: schedule-delay-example
+  namespace: chaos-mesh
 spec:
   schedule: '19 * * * *'
   historyLimit: 2
@@ -12,7 +13,7 @@ spec:
     mode: one
     selector:
       namespaces:
-        - default
+        - sample-app
       labelSelectors:
         'app': 'flask-server'
     delay:

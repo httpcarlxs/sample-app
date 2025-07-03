@@ -9,6 +9,6 @@ spec:
     labelSelectors:
       'app': 'flask-client'
     namespaces:
-      - default
+      - sample-app
   timeOffset: '+10h'
   duration: '30s'
