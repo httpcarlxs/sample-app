@@ -1,0 +1,16 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: NetworkChaos
+metadata:
+  name: loss-flask-server
+spec:
+  action: loss
+  mode: all
+  selector:
+    namespaces:
+      - sample-app
+    labelSelectors:
+      app: flask-server
+  duration: 60s
+  loss:
+    loss: '100'
+    correlation: '0'

@@ -1,0 +1,16 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: PodChaos
+metadata:
+  name: pod-kill
+spec:
+  action: pod-kill
+  mode: one
+  selector:
+    labelSelectors:
+      "app": "cas"
+      "app.kubernetes.io/name": "cas"
+      "apps.kubernetes.io/pod-index": "0"
+    namespaces:
+      - scone-system
+  #schedule:
+  #  cron: "@every 2m"

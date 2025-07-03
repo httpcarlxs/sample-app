@@ -1,3 +1,116 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: server-configmap
+  namespace: sample-app
+data:
+  server.crt: |
+    -----BEGIN CERTIFICATE-----
+    MIIErjCCApagAwIBAgIULd/zlz3CRfzucdOWUrRzM8S/lzwwDQYJKoZIhvcNAQEL
+    BQAwYTELMAkGA1UEBhMCQlIxEDAOBgNVBAgMB1BhcmFpYmExFjAUBgNVBAcMDUNh
+    bXBpbmFHcmFuZGUxEjAQBgNVBAoMCVNhbXBsZUFwcDEUMBIGA1UEAwwLU2FtcGxl
+    QXBwQ0EwHhcNMjUwNTI4MTQxMDE3WhcNMjYwNTI4MTQxMDE3WjBkMQswCQYDVQQG
+    EwJCUjEQMA4GA1UECAwHUGFyYWliYTEXMBUGA1UEBwwOQ2FtcGluYSBHcmFuZGUx
+    EzARBgNVBAoMClNhbXBsZSBBcHAxFTATBgNVBAMMDGZsYXNrLXNlcnZlcjCCASIw
+    DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjGHNFMuoMDZAJsb+FhgGg0lal8
+    4wjSao+5K2MXeefsNOj7qEJNj1JrXmVIfj4AfvaxGv8JlkeU3ThOSB/8FxgBmsgo
+    wwiuAZZC6ErMES3T+ONBNeUoMps6dcHUHf6oIv/nZHLPaJrIgUC3CYy7e/rz5q19
+    cyX78nN3Sr5XzLB7xc08/Ke8CRp7QuGqY1HQbknHGshvKeRHPHfDpIQDMlsCCuvI
+    5adnOKWsZ+MZspejkFbWbX5SDNwhD1D2rW0rn/OwHKpy1RYxJF58RlvLYKHY9pqc
+    w6DT7K7oWpKwKMrSPS6/n4AfzGO2/JJnj6Q6w+vJuYfadZL/3qga1rLVtfMCAwEA
+    AaNbMFkwFwYDVR0RBBAwDoIMZmxhc2stc2VydmVyMB0GA1UdDgQWBBQbeBCUsJ+r
+    HTIhJ4vgFJH/abRYRzAfBgNVHSMEGDAWgBSrulUVVgvu3efwecCD46NjWa9byjAN
+    BgkqhkiG9w0BAQsFAAOCAgEAMgOi/2I16xLhsqNgtMNJi3vZElnaIcntFHX2F70n
+    E468eaEyTyBRy6X7rjI50K5qHK8LGRtwM7E8MKrbndSGsK3ee8PXxNrJ3umGf3hW
+    MlUkfVa7+SR8RUf5Jg5Kox9eADclcnLzhdVHPllAcscAfET7SflWihI5Uuh/Oikg
+    6wNDMGZtFQ6VaQIr6vZpEBsIFvv0WmcXayKKFOL/nu9tnbaqeHnBceOMYQbit1rQ
+    SCT+SZ42b7Q7+yRvxXCxb58891PcX4vFdblf3SWfSWqPSl2bHFOX/L/SqweF/UJW
+    dQ/F0MT4LZR9Sw81PQoRUV9X9t3Jpxy5WYop3BZs4JLxbvnxrFbpR0cR1wbXqIU8
+    RaT6Ek6vvJ7o8El8e1Gv9RtEqlz4xzjIE8PzY6vHBYFyttuXnh3XH5+3vWEkx+3D
+    0ZpPIb+vj2YaZ1W5n+0+bmItbFB/y2EE5ebNpaM3hk1yTRKYkDicagTIFfxtJ9DZ
+    Y/sMXv6g8LJeoekcskziDpQlkVTGPo6Q228GkIdP1n0JRIdqqRh5zCp26i0wN+iV
+    e/DIwhwKiY6FIC/v+l8B2EXuPbclzxqPRUsyb7aa5cUeE4uWCQaF/tygJPibHUPB
+    VadqWNnfo+yQJVQRD4Gz7si0LqhMa6KqiGXXsQYu624VVQpjHQFGt4+raknRVG3n
+    lhs=
+    -----END CERTIFICATE-----
+  server.key: |
+    -----BEGIN PRIVATE KEY-----
+    MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDIxhzRTLqDA2QC
+    bG/hYYBoNJWpfOMI0mqPuStjF3nn7DTo+6hCTY9Sa15lSH4+AH72sRr/CZZHlN04
+    Tkgf/BcYAZrIKMMIrgGWQuhKzBEt0/jjQTXlKDKbOnXB1B3+qCL/52Ryz2iayIFA
+    twmMu3v68+atfXMl+/Jzd0q+V8ywe8XNPPynvAkae0LhqmNR0G5JxxrIbynkRzx3
+    w6SEAzJbAgrryOWnZzilrGfjGbKXo5BW1m1+UgzcIQ9Q9q1tK5/zsByqctUWMSRe
+    fEZby2Ch2PaanMOg0+yu6FqSsCjK0j0uv5+AH8xjtvySZ4+kOsPrybmH2nWS/96o
+    Gtay1bXzAgMBAAECggEAPf/fukpldju/0HfH/ONtEcDbTqGAQqMnwQY/fbQsMxBg
+    Lmo4RXFKBvudBM3kHiVtD6UVXxiIzcYMomyaHTZtsz4bnB/qSm3hk5NJxH9L9sj0
+    nMjwabmGFyVwY9CrCo7FcBz2ifW+qb2tHFzpmAn1eUOEQqLwwhQRhNKbxDe8v+qM
+    N/FJ+8dQOw5B35lXXAvebd53G0p/PC+6/T02n1T3oZoOdkfhD6Wi0u5rqh8HCaRA
+    DmwoVWUCYsvGz77nGZRaXus3qYNucsfRK5QLc8M4ia2v9utrimCxRxAwv7IEPLq6
+    QOiuL6sIgL16wh/uVf3u8WO7rF7tuhM/a0PIQydiQQKBgQD5taXFyPXuAUYwaOxU
+    4Wcm5Tgvq+9EWhSZ7YuO2gFUnnLQHoQWxXbDq02Oq0mcR99foPUPQ7K0oEs0+C0N
+    GIktEnMU+ueJFPNpBVd/x58k95lGKTuWunlSHsAQdfWY4A6rwdwR5d4KXGAjI1ED
+    49uc3wVVr0BypsP9N2RUN9bAIwKBgQDN1OIziuQ2I2wCfAqMXBSl3MR9Pbjc+urs
+    P6+Swq3PllY0f4VUKdR+41UtQRa7gVYEZ0yTT9TN2dm6htxPv1O+juVCuWWaGZnF
+    Hwq65KPkrQdg2EC8f8n/1n7Df3x0QYB2fI/6FHxmEeOed5RteDc4Dy/ym1Hof3ya
+    CkmhB5yn8QKBgCvGhV4sAbkMriJUcoHa1fuCmZv510MzS4NEmn+bhjowYM5NWzim
+    u1BIGpuVOZ1VGDqqe+uGIbD6nNSXYUZ3c6zcHCKkbayhaJ6TmihDdYnEgjFDjze4
+    TwZvb5ozI6/+L3Q60vqsQoWsdgoS6eP1sQ1KJ6RCydiPlbIxYLxG4bXjAoGBAK1c
+    89TT1BlhRlTlYwELgXyd8IVIGk9Nq9amYVvsSvcAOcVn7sWPoeHp2dEO9HWjnu6A
+    jve4kpV7Oq6nbiJhFMj4lFLZ0qCzlVd5KNF3SC+QKRnBquzZeSrZ39ULqKhGj0u8
+    6IuK+6gAw0WylDqLuX6nFAx0E84OqsUXiyJtRd4RAoGAeh/AbwOmud9YOz3pyoIq
+    AgIdIc9LdRD9nYa1wJv8aJK7Z+EdY8FzxYnGZoNf25vM0uawcqc/H5HhBC/2gGq2
+    mnmJkL73pSaCI5cfiEA2avMM3CZ6tlnrRCHfQd97bl/4FrwMTnxM2wJbs6TecxHO
+    yBWNgapLNTNNR9GYiJwP2/w=
+    -----END PRIVATE KEY-----
+  ca.crt: |
+    -----BEGIN CERTIFICATE-----
+    MIIFozCCA4ugAwIBAgIUZCNo15rAGtF3vGU4igvYSkQ3818wDQYJKoZIhvcNAQEL
+    BQAwYTELMAkGA1UEBhMCQlIxEDAOBgNVBAgMB1BhcmFpYmExFjAUBgNVBAcMDUNh
+    bXBpbmFHcmFuZGUxEjAQBgNVBAoMCVNhbXBsZUFwcDEUMBIGA1UEAwwLU2FtcGxl
+    QXBwQ0EwHhcNMjUwNTI4MTQwODA5WhcNMjYwNTI4MTQwODA5WjBhMQswCQYDVQQG
+    EwJCUjEQMA4GA1UECAwHUGFyYWliYTEWMBQGA1UEBwwNQ2FtcGluYUdyYW5kZTES
+    MBAGA1UECgwJU2FtcGxlQXBwMRQwEgYDVQQDDAtTYW1wbGVBcHBDQTCCAiIwDQYJ
+    KoZIhvcNAQEBBQADggIPADCCAgoCggIBANZxtaapta5oyz4H0ANKnEnUdonSbYgq
+    JyBxVlJnX+OXRTQ8HAcIn0Fly5xLnKM9/hzj2nM434s666LheBY1GdcDQH3JLWBi
+    BhJPDmx8lMnUEyhmo+lVmibTwYzlO0wbK7s6fzQl96oHJup9zvqrVmUQ28PlPjKC
+    nwrmzNojuwqxKZgQOWaxZ948YoPvOKUHkjZsPN+fAoXK/uYBWHOGY0kdq1wgFhYF
+    ic5uedsr1fhVGtg3RCLyR6PupD7jeYKuGFz2uiwur3NWToF8Usm28rnO+hwotsan
+    m2CXS6Kz4tXfkdn2+3/6aLUSbh80cjEfP7NHO0t4HfzXo3uAPO9we0YWqdK5aPGs
+    YzMTICFVvVUTTTfJxtYFnlQYa8hcXCldx8yFBkL9AP9OWM4WgfBDpyxx8FmsM6aO
+    E93dgtAY/HnI42ZkyG+G5+Ba0U5yHJVBeTAj49n+Z3CNVM9kHq0s3GJ0t5T/Xjv0
+    8MPPfT7O/V2er2C7CQZ3cVJ7x3OaX0mtf+fbQOuqN1md+fzylpdhdsZ60mF2N42Q
+    gbiRD0K0SA2t7GEA4pViCD0PhRyKVJPtqB3+FdjHITkDtbLH5Bl5g73JtHMhHsFW
+    qSGWktu85ZrCNFNuCLVmJU3KBonRByxI4tulIMIKentQMQ19aSEmTfwNgTTZdEhC
+    W5Rqv0QOUyZ9AgMBAAGjUzBRMB0GA1UdDgQWBBSrulUVVgvu3efwecCD46NjWa9b
+    yjAfBgNVHSMEGDAWgBSrulUVVgvu3efwecCD46NjWa9byjAPBgNVHRMBAf8EBTAD
+    AQH/MA0GCSqGSIb3DQEBCwUAA4ICAQCEHQ54RPWLMSNaU+MQexiS+LWNgDnO2UFT
+    FBsyCOmWSRxHjZi4qUeiiEeOaVjTTeKWaEHuHnzwuG4IwWBUUmOeim6aqcqKplsf
+    lbF7PJcD/AttCtOoYQ7Pp+VSNtZ+9TY1+WGKhFvum4p4J62T/0Xn149i26eGgbRj
+    +wiRnK7QoLYjY4l5ElkXqTEUQlT5LTrWQDWXfzulLcynZ3bkRXZkFiOa4NUMjBuD
+    mb8YD0pskYlJ8Sxk6jWyveXsh3nyQ5LIzeRZYIOAodOHltRCJera9/Gz5kD+WVlD
+    EovKry2GLZYfwNm8df7oQXiMFb22GdcZRYNsRVnsMzrcWOHUT1lzwd2Gy8wGK/0s
+    /qYmJseO9Cu12wJVyPuMnrJ/2YKpOZAnF3gG1B5b9lrbxNxcbFq0yfoI5lsx1zy8
+    MC/+olUYoFXkS3qlW0OS0YRO+FyHFDL9+SRavFXqMw0zeVrZ7ZWvic4xxYALYeB2
+    uFCQcJi9p9n3A7ZbeOIjappjCsBcK/oBCCcyBhPpSu13COOb84VvgKZwOsRErGaz
+    BlbziqT3WE72IGx9Uj1ePUuOCH7a38ciytxuaM/sWek+NKlRisxct5JC2fmQM2Hh
+    c8UuZ7lmN5Kjba2Qb7KUGQf+V3lbzCNkFpsbN0qIbk8WuiaMdcUpWhdlHhv0ftQ/
+    M7gUBCtBgQ==
+    -----END CERTIFICATE-----
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-server
+  namespace: sample-app
+spec:
+  selector:
+    app: flask-server
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
+
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -25,5 +138,12 @@ spec:
           readOnly: true
       volumes:
       - name: tls-certs
-        secret:
-          secretName: flask-server-tls
+        configMap:
+          name: server-configmap
+          items:
+            - key: "server.crt"
+              path: "server.crt"
+            - key: "server.key"
+              path: "server.key"
+            - key: "ca.crt"
+              path: "ca.crt"
