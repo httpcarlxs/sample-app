@@ -11,4 +11,4 @@ spec:
     labelSelectors:
       "app": "flask-server"
     namespaces:
-      - default
+      - sample-app
