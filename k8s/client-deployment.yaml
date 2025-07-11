@@ -1,3 +1,100 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: client-configmap
+  namespace: sample-app
+data:
+  client.crt: |
+    -----BEGIN CERTIFICATE-----
+    MIIESjCCAjICFC3f85c9wkX87nHTllK0czPEv5c9MA0GCSqGSIb3DQEBCwUAMGEx
+    CzAJBgNVBAYTAkJSMRAwDgYDVQQIDAdQYXJhaWJhMRYwFAYDVQQHDA1DYW1waW5h
+    R3JhbmRlMRIwEAYDVQQKDAlTYW1wbGVBcHAxFDASBgNVBAMMC1NhbXBsZUFwcENB
+    MB4XDTI1MDUyODE0MTA0NloXDTI2MDUyODE0MTA0NlowYjELMAkGA1UEBhMCQlIx
+    EDAOBgNVBAgMB1BhcmFpYmExFjAUBgNVBAcMDUNhbXBpbmFHcmFuZGUxEjAQBgNV
+    BAoMCVNhbXBsZUFwcDEVMBMGA1UEAwwMZmxhc2stY2xpZW50MIIBIjANBgkqhkiG
+    9w0BAQEFAAOCAQ8AMIIBCgKCAQEAx6nXcItIvPzQiJq6P2QdCTLDlb9G0Fbtp8PB
+    nAmYOpUYqmvwZn5/m//FohXjzmO+7qE5gUVVOdzazSe5Z/fYjuYXFaI7LI7UV3SO
+    dII9YScpaJQjRjA7w6Iv1G2RoWSTskZblRpvQ9RfR8hCiLvsxQMRFQKpzkSXg96u
+    stKnWcvu7OADFlMg+lF2V32Fa+h9ps3/hZviLpWlb8l8Y5nyOc+n7WKgJy2QJPLh
+    89uA08suLQlCg8fCTqYDd5sZwKxnBs2gwmXI644BGuL6cm1FQieseY7sShXVhB1n
+    1IzLfP238VmanUQkQU5hP6P6RhB2mft/kLdubciIVbOpd1x4kwIDAQABMA0GCSqG
+    SIb3DQEBCwUAA4ICAQCJrERCog4YlkNXEsJcanGUpN6afJlSdFogj8Su5HCA1WyL
+    UxljJIJvICPcfkaIjy/pJB6FPHLwTFHEQMltekqIUqAwZlIyv/BkAANXt+p8FJo0
+    jEqO1LjGc83ELGNRQvZQo9AqJRZJIN0z+HC0pA6LAw4wd4PQ4gsKVftOjucFlvVM
+    mxp7p4HTwO5YFBPckjrthwxxJ2o47TxzGHULMjm/FJadkhEP02V0bNdQz6+thfNl
+    HekUh2L6FYwXGE1gUnXOCnV5DlRc5gqy8qYMD8Roj/ewLAuWfj4pbDr/HXRKaZ6r
+    w6LovlM5r0pAgqwUne92KFhuCdOMoKBPwzbCMpIx+Sm7Qx+Mfzy8M43HfZdY29pJ
+    pE34b23xK/0SH6wel3v2/2AGaeqjto8JdkbfyMIwDviKq0cMjAIlB5VPrLG2zC6D
+    Q/N6dspA1zHp69UProspmrsPfRCoVu002LP+4oYjGAquv/4viKeL2Clme3fTqBj0
+    qyDeMe2Ix8DCSCIzDjB5k/wvYWAfSoRyPX4gCWRJm7hyJ1UkWWMAzmsm+50ktVJ0
+    FyzJDAyXlNVQKBmNGKIRYo1udD2ACvQNcBwOVbK7DNkX6GqZAt1N6bYBjOaGtYtm
+    nAlhoRYnEH6KUTTpJo+ARlhZ65c4X1C8azihrrWV89qAmzwW97TYorOzEMZExQ==
+    -----END CERTIFICATE-----
+
+  client.key: |
+    -----BEGIN PRIVATE KEY-----
+    MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDHqddwi0i8/NCI
+    mro/ZB0JMsOVv0bQVu2nw8GcCZg6lRiqa/Bmfn+b/8WiFePOY77uoTmBRVU53NrN
+    J7ln99iO5hcVojssjtRXdI50gj1hJylolCNGMDvDoi/UbZGhZJOyRluVGm9D1F9H
+    yEKIu+zFAxEVAqnORJeD3q6y0qdZy+7s4AMWUyD6UXZXfYVr6H2mzf+Fm+IulaVv
+    yXxjmfI5z6ftYqAnLZAk8uHz24DTyy4tCUKDx8JOpgN3mxnArGcGzaDCZcjrjgEa
+    4vpybUVCJ6x5juxKFdWEHWfUjMt8/bfxWZqdRCRBTmE/o/pGEHaZ+3+Qt25tyIhV
+    s6l3XHiTAgMBAAECggEAFRNhWZC88loGEc1cszv4Rql0SiEhMp+3wWQ2p9Jpc7xG
+    Q22ruB31OWcjxPVmO7nSrzIXNa/htv8QR49AZnBGjJBOx9VSmrmkQhZcbSxMRK4+
+    FDsYMsdSSlcbO7ipzS1RMS8fvrBGJhT2TnJIolH37wng/+SX6Qfbgyt6fwd2a9Id
+    F8rmkvVMFF4mUi7PPcwhMysVZl6JeY212bdOLcyDmb424XnrpLKvv8iNmvuih23S
+    jiIMS8qeJzwhSm1rxwIzBTdMBAoRD51QqD7+/h//RKZnY8nfCfk/aTOgpeIR6HC5
+    ScjcqFVxnu+70r53CKTxE/dnmDsC6tvrSKWY5GaWPQKBgQDrBxeR3s9WHiaA9JAc
+    YQB3AL4FvQq2jERxJmmqWiPWeKSLRTyW8QY0T5/nptbIFggDXI9sLb8RLhdmt5S8
+    EHpyj90mOinorcTRFXDsg/9zX+lHs7Y5MNeAqR8tlqWYEP8ZmpiZueiWIWgDeEKc
+    yBskjcU2VSTO3tE7ehm2EobdlQKBgQDZeuXqiITlIMfJz+eXQ9tdKdRgFnd1CbLK
+    x5U/lrrkwrYDy1FPUiFY5HeBr20us3ldrKA1b0GwZg/fZTq9d9Ll9iKVBBCJ1qME
+    tCaCtHKKw/dzuOQV1GVaKVbQCOWGW48kdCsAqKmlMJhJa5hjg4W7zSYM84/LA6Us
+    QmoAixljhwKBgCJSx9NqybbW8mKU1NMAK5Q1jIrD/+OG+pvXs0jIn0E8HzOjqeSV
+    UIWlN0IacHWKGiN7igqPZ773jz1WBCeu9GL0taRWjDZJ4ltymSpBYLYVxLjO+wbB
+    JkfI6x+6R3a8zLSNikmxB9GdEVaoYnoJE0W0Wp/DsXtwuPfJriWT8RQ9AoGBAJXE
+    eMkGst5HsM5eCpK0/EAwKjzxu9oxj5rtzu43kwUuwcHjJl+Fo8lfrJz2fi4HErFb
+    zAiAUbB02MFzKPyJpAcRdcdBQVJrKWB3331rXuYJBkP/M7OEzTdF+K7TMZ1ROEZW
+    abbOb+V+jaEiI5OEY3htUqLgqEmafQj5w54ULKvJAoGBANGqh9//b1tOGXfXj5YD
+    TC1/1KYrRc1dZ3LDFTB0bf8gnwJuvJt2g/JsQaHb5MPDdr+cUspXXYwd3r2knZDw
+    NIkOd+/6SGZnSNGAKl7fYRTnmvnvzMm3tOAYpU2G/m9op99Se4kvvSd6r8dKTnGA
+    ZoDKtu+N6Nb2akReYF+yn5dP
+    -----END PRIVATE KEY-----
+  ca.crt: |
+    -----BEGIN CERTIFICATE-----
+    MIIFozCCA4ugAwIBAgIUZCNo15rAGtF3vGU4igvYSkQ3818wDQYJKoZIhvcNAQEL
+    BQAwYTELMAkGA1UEBhMCQlIxEDAOBgNVBAgMB1BhcmFpYmExFjAUBgNVBAcMDUNh
+    bXBpbmFHcmFuZGUxEjAQBgNVBAoMCVNhbXBsZUFwcDEUMBIGA1UEAwwLU2FtcGxl
+    QXBwQ0EwHhcNMjUwNTI4MTQwODA5WhcNMjYwNTI4MTQwODA5WjBhMQswCQYDVQQG
+    EwJCUjEQMA4GA1UECAwHUGFyYWliYTEWMBQGA1UEBwwNQ2FtcGluYUdyYW5kZTES
+    MBAGA1UECgwJU2FtcGxlQXBwMRQwEgYDVQQDDAtTYW1wbGVBcHBDQTCCAiIwDQYJ
+    KoZIhvcNAQEBBQADggIPADCCAgoCggIBANZxtaapta5oyz4H0ANKnEnUdonSbYgq
+    JyBxVlJnX+OXRTQ8HAcIn0Fly5xLnKM9/hzj2nM434s666LheBY1GdcDQH3JLWBi
+    BhJPDmx8lMnUEyhmo+lVmibTwYzlO0wbK7s6fzQl96oHJup9zvqrVmUQ28PlPjKC
+    nwrmzNojuwqxKZgQOWaxZ948YoPvOKUHkjZsPN+fAoXK/uYBWHOGY0kdq1wgFhYF
+    ic5uedsr1fhVGtg3RCLyR6PupD7jeYKuGFz2uiwur3NWToF8Usm28rnO+hwotsan
+    m2CXS6Kz4tXfkdn2+3/6aLUSbh80cjEfP7NHO0t4HfzXo3uAPO9we0YWqdK5aPGs
+    YzMTICFVvVUTTTfJxtYFnlQYa8hcXCldx8yFBkL9AP9OWM4WgfBDpyxx8FmsM6aO
+    E93dgtAY/HnI42ZkyG+G5+Ba0U5yHJVBeTAj49n+Z3CNVM9kHq0s3GJ0t5T/Xjv0
+    8MPPfT7O/V2er2C7CQZ3cVJ7x3OaX0mtf+fbQOuqN1md+fzylpdhdsZ60mF2N42Q
+    gbiRD0K0SA2t7GEA4pViCD0PhRyKVJPtqB3+FdjHITkDtbLH5Bl5g73JtHMhHsFW
+    qSGWktu85ZrCNFNuCLVmJU3KBonRByxI4tulIMIKentQMQ19aSEmTfwNgTTZdEhC
+    W5Rqv0QOUyZ9AgMBAAGjUzBRMB0GA1UdDgQWBBSrulUVVgvu3efwecCD46NjWa9b
+    yjAfBgNVHSMEGDAWgBSrulUVVgvu3efwecCD46NjWa9byjAPBgNVHRMBAf8EBTAD
+    AQH/MA0GCSqGSIb3DQEBCwUAA4ICAQCEHQ54RPWLMSNaU+MQexiS+LWNgDnO2UFT
+    FBsyCOmWSRxHjZi4qUeiiEeOaVjTTeKWaEHuHnzwuG4IwWBUUmOeim6aqcqKplsf
+    lbF7PJcD/AttCtOoYQ7Pp+VSNtZ+9TY1+WGKhFvum4p4J62T/0Xn149i26eGgbRj
+    +wiRnK7QoLYjY4l5ElkXqTEUQlT5LTrWQDWXfzulLcynZ3bkRXZkFiOa4NUMjBuD
+    mb8YD0pskYlJ8Sxk6jWyveXsh3nyQ5LIzeRZYIOAodOHltRCJera9/Gz5kD+WVlD
+    EovKry2GLZYfwNm8df7oQXiMFb22GdcZRYNsRVnsMzrcWOHUT1lzwd2Gy8wGK/0s
+    /qYmJseO9Cu12wJVyPuMnrJ/2YKpOZAnF3gG1B5b9lrbxNxcbFq0yfoI5lsx1zy8
+    MC/+olUYoFXkS3qlW0OS0YRO+FyHFDL9+SRavFXqMw0zeVrZ7ZWvic4xxYALYeB2
+    uFCQcJi9p9n3A7ZbeOIjappjCsBcK/oBCCcyBhPpSu13COOb84VvgKZwOsRErGaz
+    BlbziqT3WE72IGx9Uj1ePUuOCH7a38ciytxuaM/sWek+NKlRisxct5JC2fmQM2Hh
+    c8UuZ7lmN5Kjba2Qb7KUGQf+V3lbzCNkFpsbN0qIbk8WuiaMdcUpWhdlHhv0ftQ/
+    M7gUBCtBgQ==
+    -----END CERTIFICATE-----
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -15,12 +112,19 @@ spec:
     spec:
       containers:
       - name: flask-client
-        image: sergioggrilo/flask-client:mtls
+        image: ssip-ufcg.privatedns.org/httpcarlxs/sample-app/flask-client:mtls
         volumeMounts:
         - name: tls-certs
           mountPath: /app/tls
           readOnly: true
       volumes:
       - name: tls-certs
-        secret:
-          secretName: flask-client-tls
+        configMap:
+          name: client-configmap
+          items:
+            - key: "client.crt"
+              path: "client.crt"
+            - key: "client.key"
+              path: "client.key"
+            - key: "ca.crt"
+              path: "ca.crt"
