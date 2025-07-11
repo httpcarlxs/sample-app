@@ -1,3 +1,7 @@
+# Experiment: Kill a flask-server pod
+# Description: Immediately deletes one randomly selected flask-server pod, allowing the orchestrator to recreate it.
+# Expected Effect: Presents disruption in service until the pod is rescheduled and becomes ready again.
+
 apiVersion: chaos-mesh.org/v1alpha1
 kind: PodChaos
 metadata:

@@ -1,3 +1,7 @@
+# Experiment: Simulated pod failure on flask-server
+# Description: Terminates the container runtime for one randomly selected flask-server pod, simulating a crash or failure, and restores it after 30 seconds.
+# Expected Effect: Temporary unavailability of the selected flask-server pod, which may cause request failures or increased response time during recovery.
+
 apiVersion: chaos-mesh.org/v1alpha1
 kind: PodChaos
 metadata:

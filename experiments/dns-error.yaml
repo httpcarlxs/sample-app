@@ -1,3 +1,7 @@
+# Experiment: DNS resolution failure for flask-server
+# Description: Simulates DNS errors when the flask-client attempts to resolve the domain name "flask-server".
+# Expected Effect: The flask-client should fail to reach the flask-server during the experiment window.
+
 apiVersion: chaos-mesh.org/v1alpha1
 kind: DNSChaos
 metadata:

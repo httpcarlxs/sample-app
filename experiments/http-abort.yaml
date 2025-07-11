@@ -1,3 +1,7 @@
+# Experiment: HTTP request abort for flask-client
+# Description: Aborts all outgoing HTTP requests made by the flask-client pod on port 5000, regardless of the target path.
+# Expected Effect: The flask-client will fail to complete HTTP requests during the experiment duration, potentially simulating service unavailability or network interruptions.
+
 apiVersion: chaos-mesh.org/v1alpha1
 kind: HTTPChaos
 metadata:

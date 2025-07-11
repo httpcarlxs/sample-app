@@ -1,0 +1,23 @@
+# Experiment: Total network isolation of all CAS pods.
+# Description: This experiment partitions all CAS pods from the rest of the network, effectively simulating a total network outage.
+# Expected Effect: All operations that rely on communication with the CAS should fail during the 120s duration of the chaos.
+
+#Obs: Not working. Operations continue to function as if the experiment had not been applied
+
+apiVersion: chaos-mesh.org/v1alpha1
+kind: NetworkChaos
+metadata:
+  name: cas-total-isolation
+  namespace: scone-system
+spec:
+  action: partition
+  mode: all
+  selector:
+    namespaces:
+      - scone-system
+    labelSelectors:
+      app: cas
+  direction: both
+  duration: 120s
+  target:
+    mode: all

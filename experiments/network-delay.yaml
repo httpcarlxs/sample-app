@@ -1,3 +1,7 @@
+# Experiment: One-time network delay
+# Description: Injects a fixed 2-second delay into the network traffic of one randomly selected flask-server pod for 60 seconds.
+# Expected Effect: Temporary slowdown in server response
+
 apiVersion: chaos-mesh.org/v1alpha1
 kind: NetworkChaos
 metadata:

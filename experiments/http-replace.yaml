@@ -1,3 +1,7 @@
+# Experiment: HTTP Response Delay Violation
+# Description: Simulates response manipulation by delaying HTTP responses by 2 seconds and replacing the body with a fixed JSON payload for all requests to port 5000 on flask-client.
+# Expected Effect: The client receives delayed and modified responses, potentially leading to incorrect behavior or UI inconsistencies.
+
 apiVersion: chaos-mesh.org/v1alpha1
 kind: HTTPChaos
 metadata:

@@ -1,3 +1,7 @@
+# Experiment: Time shift on flask-client pod
+# Description: Applies a time offset of +10 hours to one randomly selected flask-client pod for a duration of 30 seconds.
+# Expected Effect: May disrupt time-dependent logic or cause inconsistencies in timestamp-based operations within the affected pod.
+
 apiVersion: chaos-mesh.org/v1alpha1
 kind: TimeChaos
 metadata:

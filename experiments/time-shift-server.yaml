@@ -1,3 +1,7 @@
+# Experiment: Time shift on flask-server pod
+# Description: Applies a time offset of -10 minutes and 100 nanoseconds to one randomly selected flask-server pod for a duration of 30 seconds.
+# Expected Effect: Can lead to time drift issues, affecting scheduled tasks, time-sensitive operations, or logging consistency within the affected pod.
+
 apiVersion: chaos-mesh.org/v1alpha1
 kind: TimeChaos
 metadata:

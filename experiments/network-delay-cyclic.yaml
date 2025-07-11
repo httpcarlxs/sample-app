@@ -1,3 +1,7 @@
+# Experiment: Scheduled network delay
+# Description: Introduces a 2-second network delay to one flask-server pod every hour at minute 19, simulating periodic latency.
+# Expected Effect: Periodic increase in response time from the server
+
 apiVersion: chaos-mesh.org/v1alpha1
 kind: Schedule
 metadata:

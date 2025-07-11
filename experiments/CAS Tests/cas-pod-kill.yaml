@@ -1,3 +1,7 @@
+# Experiment: Kill a specific CAS pod.
+# Description: This experiment kills a single CAS pod (cas-0) by targeting it via specific label selectors.
+# Expected Effect: The pod should be forcefully terminated and automatically restarted by the orchestrator.
+
 apiVersion: chaos-mesh.org/v1alpha1
 kind: PodChaos
 metadata:

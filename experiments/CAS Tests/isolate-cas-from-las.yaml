@@ -1,0 +1,25 @@
+# Experiment: Network isolation between the CAS and all LAS pods
+# Descrition: Simulate the unavailibility of the attestation service (LAS) for the CAS
+# Expected effect: CAS will be unable to perform operations requiring communication with LAS, such as attesting new clients.
+
+#Obs: Not working. Operations continue to function as if the experiment had not been applied
+
+apiVersion: chaos-mesh.org/v1alpha1
+kind: NetworkChaos
+metadata:
+  name: isolate-cas-from-las
+  namespace: scone-system
+spec:
+  action: partition
+  mode: one
+  selector:
+    pods:
+      scone-system:
+        - cas-0
+  direction: both
+  duration: 180s
+  target:
+    mode: all
+    selector:
+      labelSelectors:
+        app.kubernetes.io/name: las

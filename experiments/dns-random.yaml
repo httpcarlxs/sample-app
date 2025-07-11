@@ -1,3 +1,7 @@
+# Experiment: Random DNS injection for flask-client
+# Description: Introduces random DNS errors or modifications for DNS lookups made by the flask-client pod.
+# Expected Effect: The flask-client may experience intermittent or unexpected DNS resolution issues during the experiment, possibly affecting its ability to reach services reliably.
+
 apiVersion: chaos-mesh.org/v1alpha1
 kind: DNSChaos
 metadata:

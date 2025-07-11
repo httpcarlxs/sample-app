@@ -1,3 +1,7 @@
+# Experiment: One-way network partition from flask-client to flask-server
+# Description: Simulates a unidirectional network partition where traffic from flask-client to flask-server is blocked for 60 seconds.
+# Expected Effect: Clients will not be able to reach the server, causing requests to fail or timeout, while responses from the server are unaffected.
+
 apiVersion: chaos-mesh.org/v1alpha1
 kind: NetworkChaos
 metadata:
